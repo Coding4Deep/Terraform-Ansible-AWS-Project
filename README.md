@@ -1,6 +1,6 @@
 <div align="center">
    
-# **3-Tier Spring-Boot App (MongoDB,Memecached,RabbitMQ)**
+# **3-Tier Spring-Boot Application (MongoDB,Memecached,RabbitMQ)**
 
 </div>
 
