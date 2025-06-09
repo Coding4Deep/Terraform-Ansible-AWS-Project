@@ -1,6 +1,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
+  namespace: jenkins
+  labels:
+    app: mongo-init
   name: mongo-init-job
 spec:
   template:

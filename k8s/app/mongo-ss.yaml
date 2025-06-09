@@ -1,6 +1,9 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
+  namespace: jenkins
+  labels:
+    app: mongo
   name: mongo-ss
 spec:
   serviceName: mongo
