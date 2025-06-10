@@ -34,9 +34,9 @@ spec:
           value: "11211"
         - name: SPRING_DATA_MONGODB_URI
           value: >-
-                mongodb://mongo-ss-0.mongo.default.svc.cluster.local:27017,
-                mongo-ss-1.mongo.default.svc.cluster.local:27017,
-                mongo-ss-2.mongo.default.svc.cluster.local:27017/devopsdb?replicaSet=rs0
+                mongodb://mongo-ss-0.mongo.jenkins.svc.cluster.local:27017,
+                mongo-ss-1.mongo.jenkins.svc.cluster.local:27017,
+                mongo-ss-2.mongo.jenkins.svc.cluster.local:27017/devopsdb?replicaSet=rs0
 
         livenessProbe:
           httpGet:

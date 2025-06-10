@@ -15,14 +15,14 @@ spec:
         command: ["mongo"]
         args:
           - "--host"
-          - "mongo-ss-0.mongo.default.svc.cluster.local:27017"
+          - "mongo-ss-0.mongo.jenkins.svc.cluster.local:27017"
           - "--eval"
           - |
             rs.initiate({
               _id: "rs0",
               members: [
-                { _id: 0, host: "mongo-ss-0.mongo.default.svc.cluster.local:27017" },
-                { _id: 1, host: "mongo-ss-1.mongo.default.svc.cluster.local:27017" },
-                { _id: 2, host: "mongo-ss-2.mongo.default.svc.cluster.local:27017" }
+                { _id: 0, host: "mongo-ss-0.mongo.jenkins.svc.cluster.local:27017" },
+                { _id: 1, host: "mongo-ss-1.mongo.jenkins.svc.cluster.local:27017" },
+                { _id: 2, host: "mongo-ss-2.mongo.jenkins.svc.cluster.local:27017" }
               ]
             });
