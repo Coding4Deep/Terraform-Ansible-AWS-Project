@@ -70,11 +70,11 @@ metadata:
   namespace: jenkins
   name: spring-app
 spec:
-  type: LoadBalance
+  type: LoadBalancer
   selector:
     app: spring-app
   ports:
   - port: 8080
     targetPort: 8080
     protocol: TCP
-  sessionAffinity: ClientIP
+  # sessionAffinity: ClientIP
