@@ -51,7 +51,6 @@ metadata:
   namespace: jenkins
   name: rabbitmq
 spec:
-  type: LoadBalancer
   selector:
     app: rabbitmq
   ports:
