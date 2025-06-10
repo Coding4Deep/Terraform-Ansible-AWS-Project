@@ -67,6 +67,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: jenkins
   name: spring-app
 spec:
   selector:
