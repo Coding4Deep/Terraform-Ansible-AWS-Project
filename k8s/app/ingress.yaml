@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-boot-ingress
+  namespace: jenkins
+  labels:
+    app: spring-boot
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: coding4deep.tech
+    http:
+      paths:
+      - path: /springboot
+        pathType: Prefix
+        backend:
+          service:
+            name: spring-app
+            port:
+              number: 8080
