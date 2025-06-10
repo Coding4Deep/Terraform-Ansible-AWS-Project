@@ -70,7 +70,7 @@ metadata:
   namespace: jenkins
   name: spring-app
 spec:
-  # type: LoadBalance
+  type: LoadBalance
   selector:
     app: spring-app
   ports:
