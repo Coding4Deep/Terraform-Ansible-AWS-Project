@@ -42,6 +42,13 @@ resource "aws_security_group" "terraform-private_sg" {
   }
 
   ingress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    security_groups = [aws_security_group.terraform-public_sg.id] # Allow all traffic from Tomcat EC2
+  }
+
+  ingress {
     from_port       = 22
     to_port         = 22
     protocol        = "tcp"

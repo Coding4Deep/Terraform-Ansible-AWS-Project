@@ -33,9 +33,9 @@ variable "key_name" {
   type        = string
   default     = "Terraform-Project" # Change this to your actual key pair name
 }
- 
+
 variable "ami_id" {
-  description = "AMI ID for the EC2 instances"
+  description = "AMI ID for the Tomcat EC2 instances"
   type        = string
 }
 variable "instance_type" {
@@ -43,12 +43,11 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro" # Change this to your desired instance type
 }
-variable "public_sg_id" {
-  description = "Security Group ID for the public EC2 instance"
-  type        = string
-}
 
-variable "public_subnet_id" {
-  description = "ID of the public subnet where the EC2 instance will be launched"
-  type        = string
+variable "private_instances" {
+  description = "Map of private instances with their AMI and instance type"
+  type = map(object({
+    ami           = string
+    instance_type = string
+  }))
 }

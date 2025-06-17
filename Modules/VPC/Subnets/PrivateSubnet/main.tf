@@ -24,12 +24,17 @@ resource "aws_nat_gateway" "private_nat" {
 resource "aws_route_table" "private_route_table" {
   vpc_id = var.vpc_id
 
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.private_nat.id
+  }
+
   tags = {
     Name = "Terraform_Private_Route_Table"
   }
 }
 
 resource "aws_route_table_association" "private_route_table_association" {
-  subnet_id      = var.public_subnet_id
+  subnet_id      = aws_subnet.private-subnet.id
   route_table_id = aws_route_table.private_route_table.id
 }
