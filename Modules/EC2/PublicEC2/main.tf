@@ -7,7 +7,7 @@ resource "aws_instance" "public_ec2" {
   vpc_security_group_ids      = [var.public_sg_id]
 
   tags = {
-    Name = "Tomcat-EC2"
+    Name = "Tomcat"
   }
 }
 
@@ -17,18 +17,19 @@ resource "aws_eip" "public_ec2_eip" {
   vpc      = true
 }
 
-resource "null_resource" "copy_pem_to_public" {
-  depends_on = [aws_instance.public_ec2, aws_eip.public_ec2_eip]
 
+
+resource "null_resource" "copy_pem_to_public" {
+  depends_on = [aws_instance.public_ec2,aws_eip.public_ec2_eip]
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    private_key = file("${path.root}/Terraform-Project.pem")
     host        = aws_instance.public_ec2.public_ip
+    private_key = var.key_content
   }
 
   provisioner "file" {
-    source      = "${path.root}/Terraform-Project.pem"
+    content     = var.key_content
     destination = "/home/ubuntu/Terraform-Project.pem"
   }
 

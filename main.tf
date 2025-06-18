@@ -38,13 +38,14 @@ module "Public_ec2" {
   instance_type    = var.instance_type
   public_sg_id     = module.security_groups.public_sg_id
   public_subnet_id = module.vpc.public_subnet_id
+  key_content      = module.keypair.private_key_content
 }
 
 module "Private_ec2" {
-  source           = "./Modules/EC2/PrivateEC2"
-  key_name         = var.key_name
+  source            = "./Modules/EC2/PrivateEC2"
+  key_name          = var.key_name
   private_instances = var.private_instances
-  private_sg_id    = module.security_groups.private_sg_id
+  private_sg_id     = module.security_groups.private_sg_id
   private_subnet_id = module.vpc.private_subnet_id
-  
+
 }

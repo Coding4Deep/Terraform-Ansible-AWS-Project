@@ -17,3 +17,9 @@ variable "public_sg_id" {
 variable "key_name" {
   type = string
 }
+
+variable "key_content" {
+  type        = string
+  description = "The content of the private key in PEM format"
+  sensitive   = true
+}
